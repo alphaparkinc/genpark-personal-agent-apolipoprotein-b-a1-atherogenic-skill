@@ -1,0 +1,68 @@
+{
+  "name": "genpark-personal-agent-apolipoprotein-b-a1-atherogenic-skill",
+  "version": "1.0.0",
+  "title": "Apolipoprotein B/A1 Ratio & Atherogenic Particle Sentinel Skill",
+  "description": "ApoB / ApoA1 atherogenic particle ratio, non-HDL discordance analysis, small dense LDL-P proxy, and cardiovascular plaque risk reduction. Built for GenPark (https://www.genpark.ai).",
+  "homepage": "https://www.genpark.ai",
+  "linkedin": "https://www.linkedin.com/company/92955550",
+  "category": "personal-agent",
+  "topics": [
+    "apob",
+    "apoa1",
+    "atherosclerosis",
+    "lipidology",
+    "personal-agent",
+    "model-context-protocol",
+    "genpark"
+  ],
+  "tools": [
+    {
+      "name": "calculate_apob_apoa1_ratio",
+      "description": "Compute ApoB / ApoA1 atherogenic ratio to predict coronary heart disease plaque burden independent of LDL-C.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "apob_mg_dl": {
+            "type": "number"
+          },
+          "apoa1_mg_dl": {
+            "type": "number"
+          },
+          "gender": {
+            "type": "string",
+            "enum": [
+              "male",
+              "female"
+            ]
+          }
+        },
+        "required": [
+          "apob_mg_dl",
+          "apoa1_mg_dl"
+        ]
+      }
+    },
+    {
+      "name": "audit_ldl_apob_discordance",
+      "description": "Detect discordance between standard LDL-C and atherogenic particle count (ApoB) indicative of insulin resistance.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ldl_c_mg_dl": {
+            "type": "number"
+          },
+          "apob_mg_dl": {
+            "type": "number"
+          },
+          "triglycerides_mg_dl": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "ldl_c_mg_dl",
+          "apob_mg_dl"
+        ]
+      }
+    }
+  ]
+}
